@@ -20,6 +20,9 @@ section{
     background-color:#fbfd00;
 }
 div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.5em;
     height: 100%;
     padding: 1em;
