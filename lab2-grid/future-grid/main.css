@@ -25,3 +25,8 @@ div{
     padding: 1em;
     text-align: center;
 }
+@media(min-width: 600px){
+    section{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
