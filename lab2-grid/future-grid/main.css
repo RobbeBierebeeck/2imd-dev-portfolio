@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+section{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+}
+.homework{
+    background-color: #e22959;
+}
+.broken{
+    background-color: #80fef4;
+}
+.infinity{
+    background-color:#fbfd00;
+}
+div{
+    font-size: 1.5em;
+    height: 100%;
+    padding: 1em;
+    text-align: center;
+}
