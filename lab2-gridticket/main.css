@@ -72,19 +72,30 @@ div{
 }
 
 @media(min-width: 900px){
-
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     section{
         height: 383px;
-        width: 800px;
+        width: 1000px;
         border-style: solid;
         border-width: 1px;
         border-color: black;
         grid-template-columns: 1fr 1fr 1fr 2fr;
         grid-template-rows:3fr 1fr 1fr ;
+        color: black;
+        
     }
     .title{
-        
+          border-style: solid;
+        border-width: 1px;
+        border-color: black;
         grid-column: 1 / 4;
+        flex-direction: column-reverse;
+        background-color:transparent;
+
     }
     .qr{
         grid-column: 4;
@@ -101,6 +112,10 @@ div{
     .frustrated{
         display: block;
         grid-column: 1/4;
+        font-weight: lighter;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
     }
     .price{
         grid-column: 3;
