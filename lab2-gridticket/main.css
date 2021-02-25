@@ -7,6 +7,9 @@ body{
     color: white;
 }
 section{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr 6fr 2fr 2fr;
     height: 100vh;
     background-image: url("images/pexels-vishnu-r-nair-1105666.jpg");
     background-size: cover;
@@ -18,13 +21,31 @@ section{
 }
 img{
     max-width: 100%;
-    width: 20em;
+    width: 16em;
     
 }
 .title{
     background-color:#000000;
+    padding: 2em;
+    grid-column: 1 / span1;
+}
+.qr{
+    grid-column: 1/ span1;
+    
+}
+.date{
+    grid-row: 3;
+}
+.frustrated{
+    display: none;
+}
+.price{
+    grid-row: 4;
+    grid-column: 1/span1;
 }
 div{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
