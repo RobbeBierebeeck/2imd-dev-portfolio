@@ -72,8 +72,38 @@ div{
 }
 
 @media(min-width: 900px){
+
     section{
-        height: 183px;
-        width: 600px;
+        height: 383px;
+        width: 800px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        grid-template-columns: 1fr 1fr 1fr 2fr;
+        grid-template-rows:3fr 1fr 1fr ;
+    }
+    .title{
+        
+        grid-column: 1 / 4;
+    }
+    .qr{
+        grid-column: 4;
+        grid-row: 1/span1;
+
+    }
+    .date{
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .admit{
+        grid-column: 2;
+    }
+    .frustrated{
+        display: block;
+        grid-column: 1/4;
+    }
+    .price{
+        grid-column: 3;
+        grid-row: 2;
     }
 }
