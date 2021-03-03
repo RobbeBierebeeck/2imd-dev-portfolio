@@ -10,8 +10,7 @@ var Note = /*#__PURE__*/function () {
   function Note(title) {
     _classCallCheck(this, Note);
 
-    this.title = title;
-    this.notes = []; // HINT🤩 this.element = this.createElement(title);
+    this.title = title; // HINT🤩 this.element = this.createElement(title);
   }
 
   _createClass(Note, [{
@@ -46,8 +45,7 @@ var Note = /*#__PURE__*/function () {
         note = localStorage.getItem("notes");
         note = JSON.parse(note);
         note.push(this.title);
-        localStorage.setItem("notes", JSON.stringify(note));
-        console.log(note);
+        localStorage.setItem("notes", JSON.stringify(note)); //console.log(note);
       }
     }
   }, {
@@ -57,7 +55,18 @@ var Note = /*#__PURE__*/function () {
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
-      app.taskList.removeChild(this);
+      document.querySelector("#taskList").removeChild(this);
+      var note = localStorage.getItem("notes");
+      note = JSON.parse(note);
+      console.log(note);
+      var title = this.innerHTML;
+      var index = note.findIndex(function (notation) {
+        return notation === title;
+      });
+      console.log(index);
+      note.splice(index, 1);
+      console.log(note);
+      localStorage.setItem("notes", JSON.stringify(note));
     }
   }]);
 

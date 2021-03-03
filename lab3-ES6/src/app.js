@@ -2,7 +2,7 @@
 class Note {
     constructor(title) {
       this.title = title;
-      this.notes = [];
+      
       // HINT🤩 this.element = this.createElement(title);
     }
   
@@ -42,7 +42,7 @@ class Note {
             note = JSON.parse(note);
             note.push(this.title);
             localStorage.setItem("notes",JSON.stringify(note));
-            console.log(note);
+            //console.log(note);
 
         }
       
@@ -53,7 +53,20 @@ class Note {
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
-      app.taskList.removeChild(this);
+      document.querySelector("#taskList").removeChild(this);
+      let note = localStorage.getItem("notes");
+      note = JSON.parse(note);
+      console.log(note);
+    let title = this.innerHTML;
+    let index = note.findIndex(notation => notation === title);
+    console.log(index);
+
+        note.splice(index,1);
+    
+      console.log(note);
+      localStorage.setItem("notes",JSON.stringify(note));
+      
+
     }
   }
   
