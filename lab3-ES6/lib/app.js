@@ -25,7 +25,7 @@ var Note = /*#__PURE__*/function () {
   }, {
     key: "add",
     value: function add() {
-      app.taskList.appendChild(this.createElement(this.title)); // HINT🤩
+      document.querySelector("#taskList").appendChild(this.createElement(this.title)); // HINT🤩
       // this function should append the note to the screen somehow
     }
   }, {
@@ -74,8 +74,7 @@ var App = /*#__PURE__*/function () {
     _classCallCheck(this, App);
 
     console.log("👊🏼 The Constructor!");
-    this.loadNotesFromStorage();
-    this.taskList = document.querySelector("#taskList"); // HINT🤩
+    this.loadNotesFromStorage(); // HINT🤩
     // pressing the enter key in the text field triggers the createNote function
 
     this.txtTodo = document.querySelector("#taskInput");
@@ -89,15 +88,16 @@ var App = /*#__PURE__*/function () {
     value: function loadNotesFromStorage() {
       // HINT🤩
       // load all notes from storage here and add them to the screen
-      var note = localStorage.getItem("notes");
-      note = JSON.parse(note);
+      var notes = localStorage.getItem("notes");
+      notes = JSON.parse(notes);
 
-      if (note !== null) {
-        console.log(note);
-        note.forEach(function (item) {
-          var newNote = document.createElement("li");
-          newNote.innerHTML = item;
-          document.querySelector("#taskList").appendChild(newNote);
+      if (notes !== null) {
+        notes.forEach(function (item) {
+          /*let newNote = document.createElement("li");
+             newNote.innerHTML = item;
+          document.querySelector("#taskList").appendChild(newNote);*/
+          var note = new Note(item);
+          note.add();
         });
       }
     }

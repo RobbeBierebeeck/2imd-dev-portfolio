@@ -18,7 +18,7 @@ class Note {
     add() {
 
 
-        app.taskList.appendChild(this.createElement(this.title));
+        document.querySelector("#taskList").appendChild(this.createElement(this.title));
         // HINT🤩
         // this function should append the note to the screen somehow
     }
@@ -66,7 +66,7 @@ class App {
     constructor() {
         console.log("👊🏼 The Constructor!");
         this.loadNotesFromStorage();
-        this.taskList = document.querySelector("#taskList");
+        
         // HINT🤩
         // pressing the enter key in the text field triggers the createNote function
         this.txtTodo = document.querySelector("#taskInput");
@@ -80,18 +80,19 @@ class App {
         // HINT🤩
         // load all notes from storage here and add them to the screen
         
-        let note = localStorage.getItem("notes");
-        note = JSON.parse(note);
-        if(note !== null){
+        let notes = localStorage.getItem("notes");
+        notes = JSON.parse(notes);
+        if(notes !== null){
 
-            console.log(note);
-            note.forEach(item => {
+            
+            notes.forEach(item => {
                 
-                 let newNote = document.createElement("li");
+                 /*let newNote = document.createElement("li");
                     newNote.innerHTML = item;
-                 document.querySelector("#taskList").appendChild(newNote);
+                 document.querySelector("#taskList").appendChild(newNote);*/
+                let note = new Note(item);
+                note.add();
                 
-                 
             });
         }
 
