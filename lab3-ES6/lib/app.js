@@ -25,11 +25,9 @@ var Note = /*#__PURE__*/function () {
   }, {
     key: "add",
     value: function add() {
-      var taskList = document.querySelector("#taskList");
       /* let bitch = this.createElement(this.title);
        console.log(bitch);*/
-
-      taskList.appendChild(this.createElement(this.title)); // HINT🤩
+      app.taskList.appendChild(this.createElement(this.title)); // HINT🤩
       // this function should append the note to the screen somehow
     }
   }, {
@@ -45,7 +43,7 @@ var Note = /*#__PURE__*/function () {
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
-      document.querySelector("#taskList").removeChild(this);
+      app.taskList.removeChild(this);
     }
   }]);
 
@@ -56,7 +54,8 @@ var App = /*#__PURE__*/function () {
   function App() {
     _classCallCheck(this, App);
 
-    console.log("👊🏼 The Constructor!"); // HINT🤩
+    console.log("👊🏼 The Constructor!");
+    this.taskList = document.querySelector("#taskList"); // HINT🤩
     // pressing the enter key in the text field triggers the createNote function
 
     this.txtTodo = document.querySelector("#taskInput");

@@ -15,10 +15,10 @@ class Note {
     }
   
     add() {
-        let taskList = document.querySelector("#taskList");
+        
        /* let bitch = this.createElement(this.title);
         console.log(bitch);*/
-        taskList.appendChild(this.createElement(this.title));
+        app.taskList.appendChild(this.createElement(this.title));
       // HINT🤩
       // this function should append the note to the screen somehow
     }
@@ -34,14 +34,14 @@ class Note {
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
-      document.querySelector("#taskList").removeChild(this);
+      app.taskList.removeChild(this);
     }
   }
   
   class App {
     constructor() {
       console.log("👊🏼 The Constructor!");
-  
+        this.taskList = document.querySelector("#taskList");
       // HINT🤩
       // pressing the enter key in the text field triggers the createNote function
         this.txtTodo = document.querySelector("#taskInput");
