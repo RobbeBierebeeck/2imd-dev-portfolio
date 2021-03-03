@@ -60,6 +60,7 @@ class Note {
             e.preventDefault();
             let note = new Note(this.txtTodo.value);
             note.add();
+            this.reset();
         
         }
         
@@ -73,6 +74,7 @@ class Note {
   
     reset() {
       // this function should reset the form / clear the text field
+      this.txtTodo.value="";
     }
   }
   

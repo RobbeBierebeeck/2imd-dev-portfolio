@@ -75,6 +75,7 @@ var App = /*#__PURE__*/function () {
         e.preventDefault();
         var note = new Note(this.txtTodo.value);
         note.add();
+        this.reset();
       } // this function should create a new note by using the Note() class
       // HINT🤩
       // note.add();
@@ -85,7 +86,9 @@ var App = /*#__PURE__*/function () {
     }
   }, {
     key: "reset",
-    value: function reset() {// this function should reset the form / clear the text field
+    value: function reset() {
+      // this function should reset the form / clear the text field
+      this.txtTodo.value = "";
     }
   }]);
 
