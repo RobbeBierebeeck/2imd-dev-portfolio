@@ -1,6 +1,8 @@
+
 class Note {
     constructor(title) {
       this.title = title;
+      this.notes = [];
       // HINT🤩 this.element = this.createElement(title);
     }
   
@@ -16,8 +18,7 @@ class Note {
   
     add() {
         
-       /* let bitch = this.createElement(this.title);
-        console.log(bitch);*/
+       
         app.taskList.appendChild(this.createElement(this.title));
       // HINT🤩
       // this function should append the note to the screen somehow
@@ -27,6 +28,24 @@ class Note {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
+        
+        let test;
+
+       if (localStorage.getItem("notes")=== null){
+           test= [];
+           test.push(this.title);
+           localStorage.setItem("notes",JSON.stringify(test));
+           console.log(test);
+        }
+        else{
+            test = localStorage.getItem("notes");
+            test = JSON.parse(test);
+            test.push(this.title);
+            localStorage.setItem("notes",JSON.stringify(test));
+            console.log(test);
+
+        }
+      
     }
   
     remove() {
@@ -62,6 +81,8 @@ class Note {
             let note = new Note(this.txtTodo.value);
             note.add();
             this.reset();
+            note.saveToStorage();
+            
         
         }
         

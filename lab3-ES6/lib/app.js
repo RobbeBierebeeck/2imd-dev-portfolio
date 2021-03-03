@@ -10,7 +10,8 @@ var Note = /*#__PURE__*/function () {
   function Note(title) {
     _classCallCheck(this, Note);
 
-    this.title = title; // HINT🤩 this.element = this.createElement(title);
+    this.title = title;
+    this.notes = []; // HINT🤩 this.element = this.createElement(title);
   }
 
   _createClass(Note, [{
@@ -25,16 +26,29 @@ var Note = /*#__PURE__*/function () {
   }, {
     key: "add",
     value: function add() {
-      /* let bitch = this.createElement(this.title);
-       console.log(bitch);*/
       app.taskList.appendChild(this.createElement(this.title)); // HINT🤩
       // this function should append the note to the screen somehow
     }
   }, {
     key: "saveToStorage",
-    value: function saveToStorage() {// HINT🤩
+    value: function saveToStorage() {
+      // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
+      var test;
+
+      if (localStorage.getItem("notes") === null) {
+        test = [];
+        test.push(this.title);
+        localStorage.setItem("notes", JSON.stringify(test));
+        console.log(test);
+      } else {
+        test = localStorage.getItem("notes");
+        test = JSON.parse(test);
+        test.push(this.title);
+        localStorage.setItem("notes", JSON.stringify(test));
+        console.log(test);
+      }
     }
   }, {
     key: "remove",
@@ -77,6 +91,7 @@ var App = /*#__PURE__*/function () {
         var note = new Note(this.txtTodo.value);
         note.add();
         this.reset();
+        note.saveToStorage();
       } // this function should create a new note by using the Note() class
       // HINT🤩
       // note.add();
