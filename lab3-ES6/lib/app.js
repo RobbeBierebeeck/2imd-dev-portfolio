@@ -40,7 +40,6 @@ var Note = /*#__PURE__*/function () {
         note = [];
         note.push(this.title);
         localStorage.setItem("notes", JSON.stringify(note));
-        console.log(note);
       } else {
         note = localStorage.getItem("notes");
         note = JSON.parse(note);
@@ -58,14 +57,11 @@ var Note = /*#__PURE__*/function () {
       document.querySelector("#taskList").removeChild(this);
       var note = localStorage.getItem("notes");
       note = JSON.parse(note);
-      console.log(note);
       var title = this.innerHTML;
       var index = note.findIndex(function (notation) {
         return notation === title;
       });
-      console.log(index);
       note.splice(index, 1);
-      console.log(note);
       localStorage.setItem("notes", JSON.stringify(note));
     }
   }]);
@@ -78,6 +74,7 @@ var App = /*#__PURE__*/function () {
     _classCallCheck(this, App);
 
     console.log("👊🏼 The Constructor!");
+    this.loadNotesFromStorage();
     this.taskList = document.querySelector("#taskList"); // HINT🤩
     // pressing the enter key in the text field triggers the createNote function
 
@@ -89,8 +86,20 @@ var App = /*#__PURE__*/function () {
 
   _createClass(App, [{
     key: "loadNotesFromStorage",
-    value: function loadNotesFromStorage() {// HINT🤩
+    value: function loadNotesFromStorage() {
+      // HINT🤩
       // load all notes from storage here and add them to the screen
+      var note = localStorage.getItem("notes");
+      note = JSON.parse(note);
+
+      if (note !== null) {
+        console.log(note);
+        note.forEach(function (item) {
+          var newNote = document.createElement("li");
+          newNote.innerHTML = item;
+          document.querySelector("#taskList").appendChild(newNote);
+        });
+      }
     }
   }, {
     key: "createNote",
