@@ -6,13 +6,19 @@ class Note {
   
     createElement(title) {
       let newNote = document.createElement("li");
-  
+      newNote.innerHTML=title;
+      newNote.addEventListener('click', this.remove.bind(newNote));
+      
       // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
   
       return newNote;
     }
   
     add() {
+        let taskList = document.querySelector("#taskList");
+       /* let bitch = this.createElement(this.title);
+        console.log(bitch);*/
+        taskList.appendChild(this.createElement(this.title));
       // HINT🤩
       // this function should append the note to the screen somehow
     }
@@ -52,7 +58,9 @@ class Note {
     createNote(e) {
         if(e.key === "Enter"){
             e.preventDefault();
-            console.log(this.txtTodo.value);
+            let note = new Note(this.txtTodo.value);
+            note.add();
+        
         }
         
       // this function should create a new note by using the Note() class

@@ -16,13 +16,20 @@ var Note = /*#__PURE__*/function () {
   _createClass(Note, [{
     key: "createElement",
     value: function createElement(title) {
-      var newNote = document.createElement("li"); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
+      var newNote = document.createElement("li");
+      newNote.innerHTML = title;
+      newNote.addEventListener('click', this.remove.bind(newNote)); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
 
       return newNote;
     }
   }, {
     key: "add",
-    value: function add() {// HINT🤩
+    value: function add() {
+      var taskList = document.querySelector("#taskList");
+      /* let bitch = this.createElement(this.title);
+       console.log(bitch);*/
+
+      taskList.appendChild(this.createElement(this.title)); // HINT🤩
       // this function should append the note to the screen somehow
     }
   }, {
@@ -66,7 +73,8 @@ var App = /*#__PURE__*/function () {
     value: function createNote(e) {
       if (e.key === "Enter") {
         e.preventDefault();
-        console.log(this.txtTodo.value);
+        var note = new Note(this.txtTodo.value);
+        note.add();
       } // this function should create a new note by using the Note() class
       // HINT🤩
       // note.add();
