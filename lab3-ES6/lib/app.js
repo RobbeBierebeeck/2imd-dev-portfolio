@@ -35,19 +35,19 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
-      var test;
+      var note;
 
       if (localStorage.getItem("notes") === null) {
-        test = [];
-        test.push(this.title);
-        localStorage.setItem("notes", JSON.stringify(test));
-        console.log(test);
+        note = [];
+        note.push(this.title);
+        localStorage.setItem("notes", JSON.stringify(note));
+        console.log(note);
       } else {
-        test = localStorage.getItem("notes");
-        test = JSON.parse(test);
-        test.push(this.title);
-        localStorage.setItem("notes", JSON.stringify(test));
-        console.log(test);
+        note = localStorage.getItem("notes");
+        note = JSON.parse(note);
+        note.push(this.title);
+        localStorage.setItem("notes", JSON.stringify(note));
+        console.log(note);
       }
     }
   }, {
