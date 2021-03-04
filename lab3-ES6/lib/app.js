@@ -104,12 +104,14 @@ var App = /*#__PURE__*/function () {
   }, {
     key: "createNote",
     value: function createNote(e) {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        var note = new Note(this.txtTodo.value);
-        note.add();
-        this.reset();
-        note.saveToStorage();
+      if (this.txtTodo.value !== "") {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          var note = new Note(this.txtTodo.value);
+          note.add();
+          this.reset();
+          note.saveToStorage();
+        }
       } // this function should create a new note by using the Note() class
       // HINT🤩
       // note.add();
