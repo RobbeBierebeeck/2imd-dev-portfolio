@@ -15,3 +15,8 @@ My portfolio repository for all the labs of webtech frontend.
 ![Froggy](https://github.com/Robbe-coder/2imd-dev-portfolio/blob/master/lab2-grid/froggy.png)
 ![Grid-Garden](https://github.com/Robbe-coder/2imd-dev-portfolio/blob/master/lab2-grid/garden.png)
 
+## Lab3 - ES6 
+
+* [link: codesandbox with "Task List"](https://codesandbox.io/s/lab3-todo-app-forked-npzuy?file=/app.js)
+
+
