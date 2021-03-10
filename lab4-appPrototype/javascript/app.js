@@ -1,10 +1,11 @@
 class App {
     constructor(){
         console.log("start");
-        this.itunesTrack2();
+        
         this.getLocation();
         this.lat; 
         this.long;
+
     }
     getLocation(){
         navigator.geolocation.getCurrentPosition((position) => {
@@ -18,14 +19,17 @@ class App {
     localStorageCheck(){
         if(localStorage.getItem("temps") === null){
             this.getWeather();
+            this.adjustingHTML();
         }
         else{
             let temperatures = localStorage.getItem("temps");
             temperatures = JSON.parse(temperatures);
             let newTimeStamp = Math.round(new Date().getTime()/1000);
+            this.adjustingHTML();
             if(newTimeStamp - temperatures.time > 7200){
                 localStorage.clear();
                 this.getWeather();
+                this.adjustingHTML();
             }
 
             
@@ -78,6 +82,17 @@ class App {
         }).then(err =>{
             console.log(err);
         })
+    }
+    adjustingHTML(){
+        let temperatures = localStorage.getItem("temps");
+        temperatures = JSON.parse(temperatures);
+        if(temperatures.temperature > 5){
+            this.itunesTrack1();
+            
+        }
+        else{
+            this.itunesTrack2();
+        }
     }
     
 }
