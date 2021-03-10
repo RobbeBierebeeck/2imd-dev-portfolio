@@ -5,6 +5,11 @@ class App {
         this.getLocation();
         this.lat; 
         this.long;
+        this.title= document.querySelector("h1");
+        this.album = document.querySelector(".album");
+        this.trackname = document.querySelector(".trackname");
+        this.artist = document.querySelector(".artist");
+        this.button = document.querySelector(".buy");
 
     }
     getLocation(){
@@ -58,10 +63,15 @@ class App {
             return response.json();
         }).then(data =>{
             console.log(data);
-            console.log(data.results[4].artworkUrl100);
-            console.log(data.results[4].collectionViewUrl);
-            console.log(data.results[4].trackName);
-            console.log(data.results[4].artistName);
+            this.title.innerHTML="It looks like it's hot outside"
+            this.album.setAttribute("src",data.results[4].artworkUrl100);
+            //console.log(data.results[4].artworkUrl100);
+            this.trackname.innerHTML=data.results[4].trackName;
+            this.artist.innerHTML=data.results[4].artistName;
+            //console.log(data.results[4].collectionViewUrl);
+            this.button.setAttribute("href", data.results[4].collectionViewUrl);
+            //console.log(data.results[4].trackName);
+            //console.log(data.results[4].artistName);
         }).then(err =>{
             console.log(err);
         })
@@ -75,10 +85,15 @@ class App {
             console.log(response);
             return response.json();
         }).then(data =>{
-            console.log(data.results[4].artworkUrl100);
-            console.log(data.results[4].collectionViewUrl);
-            console.log(data.results[4].trackName);
-            console.log(data.results[4].artistName);
+            this.title.innerHTML="It looks like it's cold outside"
+            this.album.setAttribute("src",data.results[4].artworkUrl100);
+            this.trackname.innerHTML=data.results[4].trackName;
+            this.artist.innerHTML=data.results[4].artistName;
+            this.button.setAttribute("href", data.results[4].collectionViewUrl);
+            //console.log(data.results[4].artworkUrl100);
+            //console.log(data.results[4].collectionViewUrl);
+            //console.log(data.results[4].trackName);
+            //console.log(data.results[4].artistName);
         }).then(err =>{
             console.log(err);
         })
@@ -86,7 +101,7 @@ class App {
     adjustingHTML(){
         let temperatures = localStorage.getItem("temps");
         temperatures = JSON.parse(temperatures);
-        if(temperatures.temperature > 5){
+        if(temperatures.temperature > 15){
             this.itunesTrack1();
             
         }
