@@ -1,7 +1,6 @@
 class App {
     constructor(){
         console.log("start");
-        
         this.getLocation();
         this.lat; 
         this.long;
@@ -48,7 +47,7 @@ class App {
             return response.json();
         }).then(data =>{
             console.log(data);
-            let temperatures = {"description": data.weather[0].description, "temperature": data.main.temp, "time": Math.round(new Date().getTime()/1000)};
+            let temperatures = {"description": data.weather[0].main, "temperature": data.main.temp, "time": Math.round(new Date().getTime()/1000)};
             localStorage.setItem('temps', JSON.stringify(temperatures));
             this.adjustingHTML();
         }).then(err =>{
@@ -59,6 +58,7 @@ class App {
     itunesTrack1(){
         
         let url = `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=nelly`;
+        
         fetch(url).then(response => {
             console.log(response);
             return response.json();
@@ -99,16 +99,41 @@ class App {
             console.log(err);
         })
     }
+
+    itunesTrack3(){
+        let url = `https://itunes.apple.com/search?term=the+weather+girls`;
+
+        fetch(url).then(response => {
+            console.log(response);
+            return response.json();
+        }).then(data =>{
+            this.title.innerHTML="It looks like it's raining outside"
+            this.album.setAttribute("src",data.results[4].artworkUrl100);
+            this.trackname.innerHTML=data.results[4].trackName;
+            this.artist.innerHTML=data.results[4].artistName;
+            this.button.setAttribute("href", data.results[4].collectionViewUrl);
+            //console.log(data.results[4].artworkUrl100);
+            //console.log(data.results[4].collectionViewUrl);
+            //console.log(data.results[4].trackName);
+            //console.log(data.results[4].artistName);
+        }).then(err =>{
+            console.log(err);
+        })
+    }
     adjustingHTML(){
         let temperatures = localStorage.getItem("temps");
         temperatures = JSON.parse(temperatures);
-        if(temperatures.temperature > 5){
+        if(temperatures.temperature > 15 && temperatures.description !== "Rain"){
             this.itunesTrack1();
             
         }
-        else{
+        else if(temperatures.temperature <= 15 && temperatures.description !== "Rain"){
             this.itunesTrack2();
         }
+        else if(temperatures.description === "Rain"){
+            this.itunesTrack3();
+        }
+
     }
     
 }
