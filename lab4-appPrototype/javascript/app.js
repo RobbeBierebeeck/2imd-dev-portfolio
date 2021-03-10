@@ -24,7 +24,7 @@ class App {
     localStorageCheck(){
         if(localStorage.getItem("temps") === null){
             this.getWeather();
-            this.adjustingHTML();
+            
         }
         else{
             let temperatures = localStorage.getItem("temps");
@@ -50,6 +50,7 @@ class App {
             console.log(data);
             let temperatures = {"description": data.weather[0].description, "temperature": data.main.temp, "time": Math.round(new Date().getTime()/1000)};
             localStorage.setItem('temps', JSON.stringify(temperatures));
+            this.adjustingHTML();
         }).then(err =>{
             console.log(err);
         })
@@ -101,7 +102,7 @@ class App {
     adjustingHTML(){
         let temperatures = localStorage.getItem("temps");
         temperatures = JSON.parse(temperatures);
-        if(temperatures.temperature > 15){
+        if(temperatures.temperature > 5){
             this.itunesTrack1();
             
         }
