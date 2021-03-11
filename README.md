@@ -17,6 +17,10 @@ My portfolio repository for all the labs of webtech frontend.
 
 ## Lab3 - ES6 
 
-* [link: codesandbox with "Task List"](https://codesandbox.io/s/lab3-todo-app-forked-npzuy?file=/app.js)
+[link: codesandbox with "Task List"](https://codesandbox.io/s/lab3-todo-app-forked-npzuy?file=/app.js)
+
+## Lab4 - AppPrototype 
+
+[link: codesandbox with "appPrototype"](https://codesandbox.io/s/competent-shaw-qplg6?file=/index.html)
 
 
