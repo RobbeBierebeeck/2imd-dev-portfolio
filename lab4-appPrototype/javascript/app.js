@@ -33,7 +33,7 @@ class App {
             if(newTimeStamp - temperatures.time > 7200){
                 localStorage.clear();
                 this.getWeather();
-                this.adjustingHTML();
+                
             }
 
             
@@ -43,7 +43,7 @@ class App {
         const appId="1c3e89a1826d749a036f49c987727437";
         let url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.long}&appid=${appId}&units=metric`;
         fetch(url).then(response => {
-            console.log(response);
+           console.log(response);
             return response.json();
         }).then(data =>{
             console.log(data);
