@@ -3,9 +3,12 @@ const app = express();
 const port = 3000;
 
 const routeMessages = require('./routers/api/v1/messages');
+const pug = require('pug');
 
-app.get("/", (req, res) =>{
-    res.send("This is the homepage");
+
+app.set('view engine', 'pug'); //here do we specify that we use the view template engine template called pug 
+app.get("/", (req, res) =>{ //https://blog.bitsrc.io/how-to-build-a-node-application-using-a-pug-template-7319ab1bba69 (I just post here a link that helped me)
+    res.render('index');
 });
 app.use("/", routeMessages);
 app.listen(port, () => {
