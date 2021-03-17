@@ -3,9 +3,18 @@ const router = express.Router();
 
 router.get("/",(req, res) => {
     console.log(req.params);
-    res.json({
-        "message": "GETTIG messages"
-    });
+    console.log(req.query.user);//it posts your name here
+    if(req.query.user){
+        const username = req.query.user;
+        res.json({
+            "message":`GETTING message for username ${username}`
+        });
+    }else{
+
+        res.json({
+            "message": "GETTIG messages"
+        });
+    }
   });
 router.get("/:id", (req,res) => {
     const id = req.params.id;
@@ -28,10 +37,10 @@ router.delete("/:id",(req,res)=>{
         "message":`DELETING a message with id ${id}`
     }); 
 })
-router.get("/?user=username",(req,res)=>{
+/*router.get("/?user=username",(req,res)=>{
     const username = req.params.username;
     res.json({
         "message":`GETTING message for username ${username}`
     });
-})
+})*/
 module.exports= router;
