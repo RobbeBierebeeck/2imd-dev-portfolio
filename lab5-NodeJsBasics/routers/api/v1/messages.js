@@ -9,4 +9,5 @@ router.get("/:id", messageController.getId);
 router.post("/", messageController.post);
 router.put("/:id", messageController.update);
 router.delete("/:id",messageController.remove);
+//here do we export our file
 module.exports= router;
