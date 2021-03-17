@@ -1,5 +1,6 @@
 const express = require("express"); 
 const router = express.Router();
+const messageController = require("../../../controllers/api/v1/messages");
 
 router.get("/",(req, res) => {
     console.log(req.params);
@@ -37,10 +38,4 @@ router.delete("/:id",(req,res)=>{
         "message":`DELETING a message with id ${id}`
     }); 
 })
-/*router.get("/?user=username",(req,res)=>{
-    const username = req.params.username;
-    res.json({
-        "message":`GETTING message for username ${username}`
-    });
-})*/
 module.exports= router;
