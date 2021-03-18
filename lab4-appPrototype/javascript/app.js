@@ -41,7 +41,7 @@ class App {
     }
     getWeather(){
         const appId="1c3e89a1826d749a036f49c987727437";
-        let url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.long}&appid=${appId}&units=metric`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.long}&appid=${appId}&units=metric`;
         fetch(url).then(response => {
            console.log(response);
             return response.json();
@@ -80,7 +80,7 @@ class App {
 
     itunesTrack2(){
         
-        let url = `https://itunes.apple.com/search?term=vanilla+ice`;
+        let url = `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=vanilla+ice`;
 
         fetch(url).then(response => {
             console.log(response);
@@ -101,7 +101,7 @@ class App {
     }
 
     itunesTrack3(){
-        let url = `https://itunes.apple.com/search?term=the+weather+girls`;
+        let url = `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=the+weather+girls`;
 
         fetch(url).then(response => {
             console.log(response);
