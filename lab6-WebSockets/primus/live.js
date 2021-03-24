@@ -7,6 +7,7 @@ function go(server){
 
     spark.on('data',(data)=>{
         console.log(data);
+        primus.write(data);
     });
   });
 }
