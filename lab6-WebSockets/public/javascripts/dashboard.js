@@ -5,6 +5,9 @@ let primus = Primus.connect('/', {
       , retries: 10 // Number: How many times we should try to reconnect.
     }
   });
+  
 primus.on("data",(data)=>{
     console.log(data);
+    let team = data.team;
+    let krakens = document.querySelector(`.${team}`).innerText= data.score;
 });
