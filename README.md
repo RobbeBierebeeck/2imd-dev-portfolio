@@ -27,7 +27,7 @@ My portfolio repository for all the labs of webtech frontend.
 
 [link: codepen with api-tester"](https://codepen.io/BierebeeckRobbe/pen/rNWEMjX)
 
-## Lab5 - Websockets
+## Lab6 - Websockets
 
 [link: heroku-dashboard](https://lab6websockets.herokuapp.com/)
 
