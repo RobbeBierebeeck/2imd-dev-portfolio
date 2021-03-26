@@ -1,0 +1,36 @@
+
+body{
+    background-color: #513a69;
+    font-family: 'Poppins', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.box{
+    
+    background-color:#6b4a96;
+    width: 40em;
+    border-radius: 10px;
+   justify-self: center;
+    display: flex;
+    flex-direction: column;
+    padding:0.5em;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+    justify-content: center;
+}
+.box h1{
+    color:#ffdec2;
+    align-self: center;
+}
+table th{
+    color:#f84c35;
+    text-align: left;
+}
+table{
+    margin: 1em;
+    
+}

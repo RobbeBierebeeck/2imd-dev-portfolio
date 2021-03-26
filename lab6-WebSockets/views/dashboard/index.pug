@@ -9,18 +9,18 @@ html(lang="en")
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     body 
-       .box
-        h1 Submit your chess results!
-        form(action='')
-         label(for='teams') Choose a team:
-            select#teams(name='teams')
-                option(value='Krakens') Argentina Krakens
-                option(value='Eagles') Armenia Eagles
-                option(value='Capybaras') Brazil Capybaras
-                option(value='Chessbrahs') Canada Chessbrahs
-            label(for='score') score
-            input#score(type='number' name='score')
-            br
-            input(type='submit' class='submit' value='Submit')
+       div(class="box")
+            h1 Submit your chess results!
+            form(action='')
+            label(for='teams') Choose a team:
+                select#teams(name='teams')
+                    option(value='Krakens') Argentina Krakens
+                    option(value='Eagles') Armenia Eagles
+                    option(value='Capybaras') Brazil Capybaras
+                    option(value='Chessbrahs') Canada Chessbrahs
+                label(for='score') score
+                input#score(type='number' name='score')
+                br
+                input(type='submit' class='submit' value='Submit')
     script(src="/javascripts/primus.js") 
     script(src='/javascripts/index.js')
